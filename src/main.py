@@ -12,18 +12,30 @@ def registrar_paciente():
     apellido = input("Ingrese los apellidos: ")
     dni = input("Ingrese el DNI: ")
     if validar_dni(dni):
-        numero = len(historias) + 1
-        historia = str(numero).zfill(6)
+        historia = len(historias) + 1
         historias.append(historia)
         apellidos.append(apellido)
         dnis.append(dni)
-        print("Paciente registrado con historia", historia)
+        print("Paciente registrado con historia  N° HC", historia)
     else:
         print("DNI invalido, no se registro")
 
-registrar_paciente()
-registrar_paciente()
+def buscar_paciente():
+    texto = input("Ingrese el numero de historia: ")
+    encontrado = False
+    if texto.isdigit():
+        historia = int(texto)
+        for i in range(len(historias)):
+            if historias[i] == historia:
+                print("Paciente encontrado")
+                print("Historia:", historias[i])
+                print("Apellidos:", apellidos[i])
+                print("DNI:", dnis[i])
+                encontrado = True
+        if encontrado == False:
+            print("Paciente no encontrado")
 
-print(historias)
-print(apellidos)
-print(dnis)
+registrar_paciente()
+registrar_paciente()
+buscar_paciente()
+buscar_paciente()
