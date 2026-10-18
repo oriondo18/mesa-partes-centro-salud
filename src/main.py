@@ -35,7 +35,28 @@ def buscar_paciente():
         if encontrado == False:
             print("Paciente no encontrado")
 
+def ordenar_pacientes():
+    n = len(apellidos)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if apellidos[j] > apellidos[j + 1]:
+                aux = apellidos[j]
+                apellidos[j] = apellidos[j + 1]
+                apellidos[j + 1] = aux
+
+                aux = historias[j]
+                historias[j] = historias[j + 1]
+                historias[j + 1] = aux
+
+                aux = dnis[j]
+                dnis[j] = dnis[j + 1]
+                dnis[j + 1] = aux
+
+    print("Pacientes ordenados por apellido:")
+    for i in range(len(apellidos)):
+        print("-", apellidos[i], dnis[i], "N° HC ", historias[i])
+
 registrar_paciente()
 registrar_paciente()
-buscar_paciente()
-buscar_paciente()
+registrar_paciente()
+ordenar_pacientes()
