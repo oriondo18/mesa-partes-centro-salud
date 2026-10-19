@@ -1,0 +1,15 @@
+INICIO registrar_paciente
+    PEDIR apellido al usuario
+    PEDIR dni al usuario
+
+    SI validar_dni(dni) es verdadero ENTONCES
+        historia = cantidad de elementos de la lista historias + 1
+        AGREGAR historia a la lista historias
+        AGREGAR apellido a la lista apellidos
+        AGREGAR dni a la lista dnis
+        LLAMAR ordenar_pacientes()
+        MOSTRAR "Paciente registrado con historia", historia
+    SINO
+        MOSTRAR "DNI invalido, no se registro"
+    FIN SI
+FIN
