@@ -22,10 +22,10 @@ def registrar_paciente():
         print("DNI invalido, no se registro")
 
 def buscar_paciente():
-    texto = input("Ingrese el numero de historia: ")
+    x = input("Ingrese el numero de historia: ")
     encontrado = False
-    if texto.isdigit():
-        historia = int(texto)
+    if x.isdigit():
+        historia = int(x)
         for i in range(len(historias)):
             if historias[i] == historia:
                 print("Paciente encontrado")

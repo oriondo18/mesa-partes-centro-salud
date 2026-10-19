@@ -13,3 +13,27 @@ INICIO registrar_paciente
         MOSTRAR "DNI invalido, no se registro"
     FIN SI
 FIN
+
+
+INICIO buscar_paciente
+    PEDIR numero de historia al usuario 
+    encontrado = falso
+
+    SI el texto contiene solo dígitos ENTONCES
+        historia = convertir el texto a número entero
+
+        PARA cada posición i de la lista historias HACER
+            SI historias[i] es igual a historia ENTONCES
+                MOSTRAR "Paciente encontrado"
+                MOSTRAR N° HC: historias[i]
+                MOSTRAR apellidos[i]
+                MOSTRAR dnis[i]
+                encontrado = verdadero
+            FIN SI
+        FIN PARA
+    FIN SI
+
+    SI encontrado es falso ENTONCES
+        MOSTRAR "Paciente no encontrado"
+    FIN SI
+FIN
