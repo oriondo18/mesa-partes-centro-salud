@@ -1,10 +1,16 @@
 from registro.registrar_paciente import registrar_paciente
 from busqueda.buscar_paciente import buscar_paciente
 from presentacion.mostrar_pacientes import mostrar_pacientes
+from autenticacion.iniciar_sesion import iniciar_sesion
 
 historias = []
 apellidos = []
 dnis = []
+
+usuarios = ["RAMIREZ", "MARTINEZ"]
+claves = ["r123", "m123"]
+
+iniciar_sesion(usuarios, claves)
 
 while True:
     print("=== MESA DE PARTES - CENTRO DE SALUD ===")
@@ -28,3 +34,4 @@ while True:
             exit()
         case _:
             print("Opcion no valida")
+
