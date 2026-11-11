@@ -3,7 +3,7 @@ def iniciar_sesion(usuarios, claves):
     acceso = False
 
     while acceso == False:
-        print("===")
+        print("===INICIAR SESION===")
         usuario = input("Ingrese su usuario: ").upper()
         clave = input("Ingrese su clave: ")
 
