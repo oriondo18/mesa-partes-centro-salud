@@ -11,12 +11,12 @@ def registrar_paciente(historias, apellidos, dnis):
                 repetido = True
         if repetido == True:
             print("Este DNI ya esta registrado, no se registró")
-
-        historia = len(historias) + 1
-        historias.append(historia)
-        apellidos.append(apellido)
-        dnis.append(dni)
-        ordenar_pacientes(historias, apellidos, dnis)
-        print("Paciente registrado con historia  N° HC", historia)
+        else:
+            historia = len(historias) + 1
+            historias.append(historia)
+            apellidos.append(apellido)
+            dnis.append(dni)
+            ordenar_pacientes(historias, apellidos, dnis)
+            print("Paciente registrado con historia  N° HC", historia)
     else:
         print("DNI invalido, no se registró")
