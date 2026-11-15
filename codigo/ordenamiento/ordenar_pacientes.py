@@ -1,4 +1,4 @@
-def ordenar_pacientes(historias, apellidos, dnis):
+def ordenar_pacientes(historias, apellidos, nombres, dnis):
     n = len(apellidos)
     for i in range(n - 1):
         for j in range(n - 1 - i):
@@ -14,3 +14,7 @@ def ordenar_pacientes(historias, apellidos, dnis):
                 aux = dnis[j]
                 dnis[j] = dnis[j + 1]
                 dnis[j + 1] = aux
+
+                aux = nombres[j]
+                nombres[j] = nombres[j + 1]
+                nombres[j + 1] = aux

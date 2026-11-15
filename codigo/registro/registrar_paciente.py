@@ -1,8 +1,9 @@
 from validaciones.validar_dni import validar_dni
 from ordenamiento.ordenar_pacientes import ordenar_pacientes
 
-def registrar_paciente(historias, apellidos, dnis):
-    apellido = input("Ingrese los apellidos: ").upper()
+def registrar_paciente(historias, apellidos, nombres, dnis):
+    apellido = input("Ingrese apellidos: ").upper()
+    nombre = input("ingrese nombres: ").upper()
     dni = input("Ingrese el DNI: ")
     if validar_dni(dni):
         repetido = False
@@ -16,7 +17,8 @@ def registrar_paciente(historias, apellidos, dnis):
             historias.append(historia)
             apellidos.append(apellido)
             dnis.append(dni)
-            ordenar_pacientes(historias, apellidos, dnis)
+            nombres.append(nombre)
+            ordenar_pacientes(historias, apellidos, nombres, dnis)
             print("Paciente registrado con historia  N° HC", historia)
     else:
         print("DNI invalido, no se registró")

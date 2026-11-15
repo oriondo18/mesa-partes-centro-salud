@@ -6,6 +6,7 @@ from autenticacion.iniciar_sesion import iniciar_sesion
 historias = []
 apellidos = []
 dnis = []
+nombres = []
 
 usuarios = ["RAMIREZ", "MARTINEZ"]
 claves = ["r123", "m123"]
@@ -25,11 +26,11 @@ while True:
         opcion = 0
     match opcion:
         case 1:
-            registrar_paciente(historias, apellidos, dnis)
+            registrar_paciente(historias, apellidos, nombres, dnis)
         case 2:
-            buscar_paciente(historias, apellidos, dnis)
+            buscar_paciente(historias, apellidos, nombres, dnis)
         case 3:
-            mostrar_pacientes(historias, apellidos, dnis)
+            mostrar_pacientes(historias, apellidos, nombres, dnis)
         case 4:
             exit()
         case _:
