@@ -8,6 +8,7 @@ apellidos = []
 nombres = []
 dnis = []
 sexos = []
+nacimientos= []
 
 usuarios = ["RAMIREZ", "MARTINEZ"]
 claves = ["r123", "m123"]
@@ -27,11 +28,11 @@ while True:
         opcion = 0
     match opcion:
         case 1:
-            registrar_paciente(historias, apellidos, nombres, sexos, dnis)
+            registrar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos)
         case 2:
-            buscar_paciente(historias, apellidos, nombres, sexos, dnis)
+            buscar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos)
         case 3:
-            mostrar_pacientes(historias, apellidos, nombres, sexos, dnis)
+            mostrar_pacientes(historias, apellidos, nombres, dnis, sexos, nacimientos)
         case 4:
             exit()
         case _:

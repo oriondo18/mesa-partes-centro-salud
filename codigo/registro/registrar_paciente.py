@@ -1,30 +1,44 @@
 from validaciones.validar_dni import validar_dni
 from validaciones.validar_sexo import validar_sexo
+from validaciones.validar_fecha import validar_fecha
 from ordenamiento.ordenar_pacientes import ordenar_pacientes
 
-def registrar_paciente(historias, apellidos, nombres, sexos, dnis):
+def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis):
     apellido = input("Ingrese apellidos: ").upper()
     nombre = input("Ingrese nombres: ").upper()
     sexo = input("Ingrese sexo (M/F): ").upper()
     while validar_sexo(sexo) == False:
         print("Sexo invalido, escriba M o F")
         sexo = input("Ingrese sexo (M/F): ").upper()
+
+    print("Fecha de nacimiento")
+    dia = input("Dia: ")
+    mes = input("Mes: ")
+    año = input("Año: ")
+    while validar_fecha(dia, mes, año) == False:
+        print("Fecha invalida, ingrese de nuevo")
+        dia = input("Dia: ")
+        mes = input("Mes: ")
+        año = input("Año: ")
+    nacimiento = dia.zfill(2) + "/" + mes.zfill(2) + "/" + año
+    
     dni = input("Ingrese el DNI: ")
-    if validar_dni(dni):
-        repetido = False
-        for i in range(len(dnis)):
-            if dnis[i] == dni:
-                repetido = True
-        if repetido == True:
-            print("Este DNI ya esta registrado, no se registró")
-        else:
-            historia = len(historias) + 1
-            historias.append(historia)
-            apellidos.append(apellido)
-            nombres.append(nombre)
-            sexos.append(sexo)
-            dnis.append(dni)
-            ordenar_pacientes(historias, apellidos, nombres, sexos, dnis)
-            print("Paciente registrado con historia  N° HC", historia)
-    else:
+    repetido = False
+    for i in range(len(dnis)):
+        if dnis[i] == dni:
+            repetido = True
+
+    if validar_dni(dni) == False:
         print("DNI invalido, no se registró")
+    elif repetido == True:
+        print("Este DNI ya esta registrado, no se registró")
+    else:
+        historia = len(historias) + 1
+        historias.append(historia)
+        apellidos.append(apellido)
+        nombres.append(nombre)
+        dnis.append(dni)
+        sexos.append(sexo)
+        nacimientos.append(nacimiento)
+        ordenar_pacientes(historias, apellidos, nombres, sexos, nacimientos, dnis)
+        print("Paciente registrado con historia N° HC", historia)
