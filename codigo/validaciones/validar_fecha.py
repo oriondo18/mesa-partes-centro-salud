@@ -1,6 +1,8 @@
 def validar_fecha(dia, mes, año):
     if dia.isdigit() == False or mes.isdigit() == False or año.isdigit() == False:
         return False
+    if len(dia) > 2 or len(mes) > 2 or len(año) != 4:
+        return False
 
     dia = int(dia)
     mes = int(mes)

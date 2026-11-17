@@ -1,9 +1,10 @@
+from datetime import date
 from validaciones.validar_dni import validar_dni
 from validaciones.validar_sexo import validar_sexo
 from validaciones.validar_fecha import validar_fecha
 from ordenamiento.ordenar_pacientes import ordenar_pacientes
 
-def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis):
+def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas):
     apellido = input("Ingrese apellidos: ").upper()
     nombre = input("Ingrese nombres: ").upper()
     sexo = input("Ingrese sexo (M/F): ").upper()
@@ -34,11 +35,14 @@ def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis):
         print("Este DNI ya esta registrado, no se registró")
     else:
         historia = len(historias) + 1
+        fecha_registro = date.today().strftime("%d/%m/%Y")
+
         historias.append(historia)
         apellidos.append(apellido)
         nombres.append(nombre)
         dnis.append(dni)
         sexos.append(sexo)
         nacimientos.append(nacimiento)
-        ordenar_pacientes(historias, apellidos, nombres, sexos, nacimientos, dnis)
+        fechas.append(fecha_registro)
+        ordenar_pacientes(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas)
         print("Paciente registrado con historia N° HC", historia)
