@@ -1,4 +1,4 @@
-def mostrar_pacientes(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas):
+def mostrar_pacientes(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas):
     if len(historias) == 0:
         print("No hay pacientes registrados")
     else:

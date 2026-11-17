@@ -2,6 +2,8 @@ from registro.registrar_paciente import registrar_paciente
 from busqueda.buscar_paciente import buscar_paciente
 from presentacion.mostrar_pacientes import mostrar_pacientes
 from autenticacion.iniciar_sesion import iniciar_sesion
+from archivos.guardar_datos import guardar_datos
+from archivos.cargar_datos import cargar_datos
 
 historias = []
 apellidos = []
@@ -15,6 +17,7 @@ usuarios = ["RAMIREZ", "MARTINEZ"]
 claves = ["r123", "m123"]
 
 iniciar_sesion(usuarios, claves)
+cargar_datos(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
 
 while True:
     print("=== MESA DE PARTES - CENTRO DE SALUD ===")
@@ -30,6 +33,7 @@ while True:
     match opcion:
         case 1:
             registrar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
+            guardar_datos(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
         case 2:
             buscar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
         case 3:

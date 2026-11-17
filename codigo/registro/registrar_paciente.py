@@ -4,7 +4,7 @@ from validaciones.validar_sexo import validar_sexo
 from validaciones.validar_fecha import validar_fecha
 from ordenamiento.ordenar_pacientes import ordenar_pacientes
 
-def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas):
+def registrar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas):
     apellido = input("Ingrese apellidos: ").upper()
     nombre = input("Ingrese nombres: ").upper()
     sexo = input("Ingrese sexo (M/F): ").upper()
@@ -44,5 +44,5 @@ def registrar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis, 
         sexos.append(sexo)
         nacimientos.append(nacimiento)
         fechas.append(fecha_registro)
-        ordenar_pacientes(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas)
+        ordenar_pacientes(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
         print("Paciente registrado con historia N° HC", historia)

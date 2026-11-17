@@ -1,4 +1,4 @@
-def buscar_paciente(historias, apellidos, nombres, sexos, nacimientos, dnis, fechas):
+def buscar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas):
     x = input("Ingrese el numero de historia: ")
     encontrado = False
     if x.isdigit():
