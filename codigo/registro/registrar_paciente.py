@@ -54,4 +54,4 @@ def registrar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, 
         nacimientos.append(nacimiento)
         fechas.append(fecha_registro)
         ordenar_pacientes(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas)
-        print("Paciente registrado con historia N° HC", historia)
+        print("Paciente registrado con historia N° HC", str(historia).zfill(6))
