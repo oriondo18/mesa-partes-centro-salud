@@ -2,11 +2,20 @@ from datetime import date
 from validaciones.validar_dni import validar_dni
 from validaciones.validar_sexo import validar_sexo
 from validaciones.validar_fecha import validar_fecha
+from validaciones.validar_texto import validar_texto
 from ordenamiento.ordenar_pacientes import ordenar_pacientes
 
 def registrar_paciente(historias, apellidos, nombres, dnis, sexos, nacimientos, fechas):
-    apellido = input("Ingrese apellidos: ").upper()
-    nombre = input("Ingrese nombres: ").upper()
+    apellido = input("Ingrese apellidos: ").strip().upper()
+    while validar_texto(apellido) == False:
+        print("Apellidos invalidos, use solo letras")
+        apellido = input("Ingrese los apellidos: ").strip().upper()
+
+    nombre = input("Ingrese los nombres: ").strip().upper()
+    while validar_texto(nombre) == False:
+        print("Nombres invalidos, use solo letras")
+        nombre = input("Ingrese los nombres: ").strip().upper()
+
     sexo = input("Ingrese sexo (M/F): ").upper()
     while validar_sexo(sexo) == False:
         print("Sexo invalido, escriba M o F")
