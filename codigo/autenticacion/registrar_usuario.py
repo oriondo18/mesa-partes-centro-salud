@@ -1,5 +1,5 @@
 from archivos.guardar_usuarios import guardar_usuarios
-
+from autenticacion.codificar_clave import codificar_clave
 
 def registrar_usuario(usuarios, claves, roles, rol):
     usuario = input("Ingrese el nuevo usuario: ").strip().upper()
@@ -19,7 +19,7 @@ def registrar_usuario(usuarios, claves, roles, rol):
             print("Clave muy corta, no se registro")
         else:
             usuarios.append(usuario)
-            claves.append(clave)
+            claves.append(codificar_clave(clave))
             roles.append(rol)
             guardar_usuarios(usuarios, claves, roles)
             print("Usuario registrado con rol", rol)
